@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Gestión de Proveedores</h1>
+    
+    <a href="{{ url_for('proveedores.nuevo_proveedor') }}">Nuevo Proveedor</a>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Razón Social</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for proveedor in proveedores %}
+                <tr>
+                    <td>{{ proveedor.id }}</td>
+                    <td>{{ proveedor.razon_social }}</td>
+                    <td>{{ proveedor.direccion }}</td>
+                    <td>{{ proveedor.telefono }}</td>
+                    <td>{{ proveedor.email }}</td>
+                    <td>
+                        <a href="{{ url_for('proveedores.editar_proveedor', id=proveedor.id) }}">Editar</a> |
+                        <a href="{{ url_for('proveedores.eliminar_proveedor', id=proveedor.id) }}">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
