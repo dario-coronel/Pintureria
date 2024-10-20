@@ -1,4 +1,4 @@
-from pintureria import create_app  # Importamos la función de crear la app
+from config import create_app  # Importamos la función para crear la app
 
 # Crear la aplicación Flask
 app = create_app()
