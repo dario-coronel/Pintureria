@@ -1,3 +1,37 @@
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul li a:hover {
+    color: #ddd;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;  /* Redondeo en las esquinas */
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+main {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;  /* Limita el ancho máximo del contenido */
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -68,4 +102,19 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+    text-align: left;
 }
