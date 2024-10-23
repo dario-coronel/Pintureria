@@ -7,7 +7,6 @@ class ProveedorService:
         self.db_session = db_session
 
     def obtener_todos(self):
-        """Obtiene todos los proveedores de la base de datos."""
         try:
             return self.db_session.query(Proveedor).filter_by(deleted=False).all()
         except SQLAlchemyError as e:
@@ -15,7 +14,6 @@ class ProveedorService:
             return []
 
     def obtener_por_id(self, proveedor_id: int):
-        """Obtiene un proveedor por su ID."""
         try:
             return self.db_session.query(Proveedor).filter_by(id=proveedor_id, deleted=False).first()
         except SQLAlchemyError as e:
@@ -23,7 +21,6 @@ class ProveedorService:
             return None
 
     def agregar_proveedor(self, proveedor_data):
-        """Agrega un nuevo proveedor."""
         try:
             nuevo_proveedor = Proveedor(
                 razon_social=proveedor_data['razon_social'],
@@ -40,7 +37,6 @@ class ProveedorService:
             return None
 
     def actualizar_proveedor(self, proveedor_id: int, proveedor_data):
-        """Actualiza un proveedor existente."""
         try:
             proveedor = self.obtener_por_id(proveedor_id)
             if proveedor:
@@ -58,11 +54,10 @@ class ProveedorService:
             return None
 
     def eliminar_proveedor(self, proveedor_id: int):
-        """Elimina (lógica) un proveedor."""
         try:
             proveedor = self.obtener_por_id(proveedor_id)
             if proveedor:
-                proveedor.deleted = True  # Eliminación lógica
+                proveedor.deleted = True 
                 self.db_session.commit()
                 return proveedor
             return None

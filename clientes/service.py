@@ -7,7 +7,6 @@ class ClienteService:
         self.db_session = db_session
 
     def obtener_todos(self):
-        """Obtiene todos los clientes de la base de datos."""
         try:
             return self.db_session.query(Cliente).filter_by(deleted=False).all()
         except SQLAlchemyError as e:
@@ -15,7 +14,6 @@ class ClienteService:
             return []
 
     def obtener_por_id(self, cliente_id: int):
-        """Obtiene un cliente por su ID."""
         try:
             return self.db_session.query(Cliente).filter_by(id=cliente_id, deleted=False).first()
         except SQLAlchemyError as e:
@@ -23,7 +21,6 @@ class ClienteService:
             return None
 
     def agregar_cliente(self, cliente_data):
-        """Agrega un nuevo cliente."""
         try:
             nuevo_cliente = Cliente(
                 nombre=cliente_data['nombre'],
@@ -41,7 +38,6 @@ class ClienteService:
             return None
 
     def actualizar_cliente(self, cliente_id: int, cliente_data):
-        """Actualiza un cliente existente."""
         try:
             cliente = self.obtener_por_id(cliente_id)
             if cliente:
@@ -60,7 +56,6 @@ class ClienteService:
             return None
 
     def eliminar_cliente(self, cliente_id: int):
-        """Elimina (lógica) un cliente."""
         try:
             cliente = self.obtener_por_id(cliente_id)
             if cliente:

@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Boolean
 from config.cnx import Base
 
 class Proveedor(Base):
@@ -9,3 +9,4 @@ class Proveedor(Base):
     direccion = Column(String)
     telefono = Column(String)
     email = Column(String, unique=True)
+    deleted = Column(Boolean, default=False)

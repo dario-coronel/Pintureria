@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-# Conexión a SQLite (puedes cambiarla si lo necesitas)
+# Conexión a SQLite 
 DATABASE_URL = "sqlite:///./pintureria.db"
 
 # Crear el engine de SQLAlchemy

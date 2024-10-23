@@ -10,7 +10,7 @@ productos_bp = Blueprint('productos', __name__)
 @productos_bp.route('/productos')
 def listar_productos():
     session = SessionLocal()
-    productos = session.query(Producto).all()
+    productos = session.query(Producto).join(Proveedor).all()
     session.close()
     return render_template('productos.html', productos=productos)
 

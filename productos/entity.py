@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Float, ForeignKey
-from config.cnx import Base  # Importando el Base desde cnx.py
+from config.cnx import Base 
 
 class Producto(Base):
     __tablename__ = 'productos'
@@ -10,5 +10,5 @@ class Producto(Base):
     categoria = Column(String)
     stock = Column(Integer)
     proveedor_id = Column(Integer)
-    proveedor_id = Column(Integer, ForeignKey('proveedores.id'))  # Relación con proveedores
-    categoria = Column(String)  # Pinturas, Pinceles, Otros
+    proveedor_id = Column(Integer, ForeignKey('proveedores.id'))  
+    categoria = Column(String)  

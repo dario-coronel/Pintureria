@@ -7,7 +7,6 @@ class ProductoService:
         self.db_session = db_session
 
     def obtener_todos(self):
-        """Obtiene todos los productos de la base de datos."""
         try:
             return self.db_session.query(Producto).filter_by(deleted=False).all()
         except SQLAlchemyError as e:
@@ -15,7 +14,6 @@ class ProductoService:
             return []
 
     def obtener_por_id(self, producto_id: int):
-        """Obtiene un producto por su ID."""
         try:
             return self.db_session.query(Producto).filter_by(id=producto_id, deleted=False).first()
         except SQLAlchemyError as e:
@@ -23,7 +21,6 @@ class ProductoService:
             return None
 
     def agregar_producto(self, producto_data):
-        """Agrega un nuevo producto."""
         try:
             nuevo_producto = Producto(
                 codigo=producto_data['codigo'],
@@ -42,7 +39,6 @@ class ProductoService:
             return None
 
     def actualizar_producto(self, producto_id: int, producto_data):
-        """Actualiza un producto existente."""
         try:
             producto = self.obtener_por_id(producto_id)
             if producto:
@@ -62,7 +58,6 @@ class ProductoService:
             return None
 
     def eliminar_producto(self, producto_id: int):
-        """Elimina (lógica) un producto."""
         try:
             producto = self.obtener_por_id(producto_id)
             if producto:
