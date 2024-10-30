@@ -3,7 +3,7 @@ from productos.entity import Producto
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import SQLAlchemyError
 
-# Configurar el logger
+# Configurar logger
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
